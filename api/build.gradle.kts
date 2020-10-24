@@ -1,5 +1,4 @@
 plugins {
-    kotlin("jvm")
 }
 
 group = "com.thomas-driscoll"
