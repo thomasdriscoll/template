@@ -31,6 +31,7 @@ subprojects{
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
         }
+        implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
     }
 }
 dependencies {
@@ -43,6 +44,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+    implementation(project(":controller"))
 }
 
 tasks.withType<Test> {

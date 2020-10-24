@@ -1,4 +1,4 @@
-package com.thomasdriscoll.template
+package com.thomasdriscoll.template.template
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

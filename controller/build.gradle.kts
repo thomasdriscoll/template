@@ -9,5 +9,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":api"))
+    implementation(project(":service"))
     implementation(kotlin("stdlib"))
 }
