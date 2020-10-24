@@ -1,4 +1,4 @@
-package com.thomasdriscoll.template.template
+package com.thomasdriscoll.template
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
