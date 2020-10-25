@@ -1,6 +1,8 @@
 package com.thomasdriscoll.template.controller
 
 import com.nhaarman.mockitokotlin2.*
+import com.thomasdriscoll.template.lib.exceptions.ExceptionResponses
+import com.thomasdriscoll.template.lib.exceptions.TemplateException
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import com.thomasdriscoll.template.service.TemplateService
@@ -28,6 +30,7 @@ internal class TemplateControllerTest {
 
     private val NAME = "thomas"
     private val RESPONSE = "thomas"
+    private val ERR = ExceptionResponses.BAD_REQUEST.message
 
     @Nested
     inner class SanityCheckTests{
@@ -45,7 +48,13 @@ internal class TemplateControllerTest {
 
         @Test
         fun `Test what happens when it breaks`(){
+            whenever(templateService.dummyFunction(NAME))
+                    .thenReturn(ExceptionResponses.BAD_REQUEST.message)
 
+            mockMvc.perform(get("/$NAME")
+                    .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isBadRequest)
+                    .andExpect(content().string(ERR))
         }
     }
 }
