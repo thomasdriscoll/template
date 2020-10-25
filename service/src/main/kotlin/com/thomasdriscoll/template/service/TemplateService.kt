@@ -1,4 +1,4 @@
-package com.thomasdriscoll.template.service.service
+package com.thomasdriscoll.template.service
 
 import org.springframework.stereotype.Service
 

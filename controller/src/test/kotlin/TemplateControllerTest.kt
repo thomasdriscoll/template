@@ -3,8 +3,8 @@ package com.thomasdriscoll.template.service
 import com.nhaarman.mockitokotlin2.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
-import com.thomasdriscoll.template.service.service.TemplateService
-import com.thomasdriscoll.template.service.controller.TemplateController
+import com.thomasdriscoll.template.service.TemplateService
+import com.thomasdriscoll.template.controller.TemplateController
 import org.junit.jupiter.api.Test
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
