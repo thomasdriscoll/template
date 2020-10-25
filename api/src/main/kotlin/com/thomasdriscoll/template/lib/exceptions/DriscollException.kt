@@ -1,6 +1,8 @@
 package com.thomasdriscoll.template.lib.exceptions
 
+import org.springframework.http.HttpStatus
+
 class DriscollException(
-    val code: Int,
-    message: String
+        val status: HttpStatus,
+        message: String
 ) : Exception(message)
