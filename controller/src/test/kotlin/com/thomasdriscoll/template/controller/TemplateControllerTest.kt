@@ -1,10 +1,9 @@
-package com.thomasdriscoll.template.service.com.thomasdriscoll.template.service
+package com.thomasdriscoll.template.controller
 
 import com.nhaarman.mockitokotlin2.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import com.thomasdriscoll.template.service.TemplateService
-import com.thomasdriscoll.template.controller.TemplateController
 import org.junit.jupiter.api.Test
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
@@ -22,7 +21,8 @@ internal class TemplateControllerTest {
     fun setup(){
         templateService = mock()
         templateController = TemplateController(templateService)
-        mockMvc = standaloneSetup(templateController).build()
+        mockMvc = standaloneSetup(templateController)
+                    .build()
 
     }
 

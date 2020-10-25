@@ -9,7 +9,6 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":api"))
     implementation(project(":service"))
     implementation(kotlin("stdlib"))
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
