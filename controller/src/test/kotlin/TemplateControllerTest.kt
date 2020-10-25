@@ -1,11 +1,15 @@
-package com.thomasdriscoll.template.controller
+package com.thomasdriscoll.template.service
 
-import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
-import com.thomasdriscoll.template.service.TemplateService
+import com.thomasdriscoll.template.service.service.TemplateService
+import com.thomasdriscoll.template.service.controller.TemplateController
 import org.junit.jupiter.api.Test
+import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup
 
 internal class TemplateControllerTest {
@@ -22,10 +26,21 @@ internal class TemplateControllerTest {
 
     }
 
+    private val NAME = "thomas"
+    private val RESPONSE = "thomas"
+
     @Nested
     inner class SanityCheckTests{
         @Test
         fun `Test if it works`(){
+            whenever(templateService.dummyFunction(NAME))
+                    .thenReturn(RESPONSE)
+
+            mockMvc.perform(get("/$NAME")
+                    .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk)
+                    .andExpect(content().string(RESPONSE))
+
         }
 
         @Test

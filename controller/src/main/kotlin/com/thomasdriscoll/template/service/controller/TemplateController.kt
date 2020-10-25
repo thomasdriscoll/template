@@ -1,8 +1,8 @@
-package com.thomasdriscoll.template.controller
+package com.thomasdriscoll.template.service.controller
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController;
-import com.thomasdriscoll.template.service.TemplateService
+import com.thomasdriscoll.template.service.service.TemplateService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 
