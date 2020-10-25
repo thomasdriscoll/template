@@ -29,6 +29,7 @@ internal class TemplateControllerTest {
     inner class SanityCheckTests{
         @Test
         fun `Test if it works`(){
+
         }
 
         @Test

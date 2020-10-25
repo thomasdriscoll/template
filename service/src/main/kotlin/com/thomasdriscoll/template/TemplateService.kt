@@ -8,4 +8,8 @@ class TemplateService {
     fun dummyFunction() : String{
         return ""
     }
+
+    fun swearToMe(name: String) : String{
+        return name;
+    }
 }
