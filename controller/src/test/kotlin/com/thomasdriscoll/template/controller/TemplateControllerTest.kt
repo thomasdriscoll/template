@@ -1,4 +1,4 @@
-package com.thomasdriscoll.template.service
+package com.thomasdriscoll.template.service.com.thomasdriscoll.template.service
 
 import com.nhaarman.mockitokotlin2.*
 import org.junit.jupiter.api.BeforeEach
