@@ -1,11 +1,14 @@
 package com.thomasdriscoll.template.controller
 
 import com.nhaarman.mockitokotlin2.*
+import com.thomasdriscoll.template.lib.responses.DriscollResponse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import com.thomasdriscoll.template.service.TemplateService
 import org.junit.jupiter.api.Test
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder.json
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
@@ -39,8 +42,6 @@ internal class TemplateControllerTest {
             mockMvc.perform(get("/$NAME")
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk)
-                    .andExpect(content().string(RESPONSE))
-
         }
 
         @Test

@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 
 @ControllerAdvice
 class GlobalExceptionHandler {
+
     @ExceptionHandler(DriscollException::class)
     fun templateExceptions(e: DriscollException): ResponseEntity<DriscollResponse<String>> {
         return ResponseEntity.status(e.status).body(DriscollResponse(e.status.value(), e.message))
     }
-
 }

@@ -9,7 +9,7 @@ class TemplateService {
 
     fun dummyFunction(name: String) : String{
         if(name == "Brian"){
-            throw DriscollException(ExceptionResponses.BAD_REQUEST.code,ExceptionResponses.BAD_REQUEST.message)
+            throw DriscollException(ExceptionResponses.TESTING_EXCEPTIONS.status,ExceptionResponses.TESTING_EXCEPTIONS.message)
         }
         return name
     }
