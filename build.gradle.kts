@@ -6,6 +6,8 @@ plugins {
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
     kotlin("plugin.jpa") version "1.3.72"
+    id("org.sonarqube") version "3.0"
+    id("jacoco")
 }
 
 group = "com.thomas-driscoll"
@@ -47,6 +49,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+    implementation("org.springdoc:springdoc-openapi-ui:1.4.8")
     implementation(project(":controller"))
 }
 
@@ -57,6 +60,21 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestCoverageVerification) // report is always generated after tests run
+}
+tasks.jacocoTestCoverageVerification {
+    dependsOn(tasks.test)
+    violationRules {
+        rule {
+            limit {
+                counter = "LINE"
+                minimum = "0.7".toBigDecimal()
+            }
+        }
     }
 }
