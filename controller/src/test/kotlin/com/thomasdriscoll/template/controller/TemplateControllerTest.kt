@@ -1,6 +1,8 @@
 package com.thomasdriscoll.template.controller
 
 import com.nhaarman.mockitokotlin2.*
+import com.thomasdriscoll.template.lib.exceptions.DriscollException
+import com.thomasdriscoll.template.lib.exceptions.ExceptionResponses
 import com.thomasdriscoll.template.lib.responses.DriscollResponse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -30,7 +32,9 @@ internal class TemplateControllerTest {
     }
 
     private val NAME = "thomas"
+    private val BNAME = "Brian"
     private val RESPONSE = "thomas"
+    private val ERR = DriscollException(ExceptionResponses.TESTING_EXCEPTIONS.status,ExceptionResponses.TESTING_EXCEPTIONS.message)
 
     @Nested
     inner class SanityCheckTests{
@@ -41,11 +45,21 @@ internal class TemplateControllerTest {
 
             mockMvc.perform(get("/$NAME")
                     .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk)
+                    .andExpect(status().isOk) // this works
+                    //need to figure out how to check body
+
+
         }
 
         @Test
         fun `Test what happens when it breaks`(){
+            whenever(templateService.dummyFunction(BNAME))
+                    .thenThrow(ERR)
+
+            mockMvc.perform(get("/$NAME")
+                    .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isBadRequest) // this does not work
+                    //need to figure out how to check body
 
         }
     }
