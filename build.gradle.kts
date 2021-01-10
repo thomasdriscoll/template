@@ -67,14 +67,14 @@ tasks.withType<KotlinCompile> {
 tasks.test {
     finalizedBy(tasks.jacocoTestCoverageVerification) // report is always generated after tests run
 }
-tasks.jacocoTestCoverageVerification {
-    dependsOn(tasks.test)
-    violationRules {
-        rule {
-            limit {
-                counter = "LINE"
-                minimum = "0.7".toBigDecimal()
-            }
-        }
-    }
-}
+//tasks.jacocoTestCoverageVerification {
+//    dependsOn(tasks.test)
+//    violationRules {
+//        rule {
+//            limit {
+//                counter = "LINE"
+//                minimum = "0.7".toBigDecimal()
+//            }
+//        }
+//    }
+//}
