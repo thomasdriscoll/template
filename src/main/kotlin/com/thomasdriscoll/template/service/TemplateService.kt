@@ -11,6 +11,6 @@ class TemplateService {
         if(name == "Brian"){
             throw DriscollException(ExceptionResponses.TESTING_EXCEPTIONS.status,ExceptionResponses.TESTING_EXCEPTIONS.message)
         }
-        return name
+        return "My name is $name"
     }
 }

@@ -40,8 +40,10 @@ subprojects{
     }
 }
 dependencies {
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.cloud:spring-cloud-commons:3.0.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -50,7 +52,7 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
     implementation("org.springdoc:springdoc-openapi-ui:1.4.8")
-    implementation(project(":controller"))
+    implementation(project(":api"))
 }
 
 tasks.withType<Test> {
