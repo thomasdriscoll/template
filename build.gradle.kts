@@ -36,6 +36,7 @@ subprojects{
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
         }
+        implementation("org.hibernate.validator:hibernate-validator")
         implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
     }
 }
@@ -51,6 +52,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+    implementation("org.hibernate.validator:hibernate-validator")
+    implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
     implementation("org.springdoc:springdoc-openapi-ui:1.4.8")
     implementation(project(":api"))
 }
