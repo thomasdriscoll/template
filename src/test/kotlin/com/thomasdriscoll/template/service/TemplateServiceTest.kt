@@ -36,9 +36,8 @@ internal class TemplateServiceTest {
         fun whenInvalidName_throwException() {
             val excepted : DriscollException = DriscollException(ExceptionResponses.TESTING_EXCEPTIONS.status,
                                                                  ExceptionResponses.TESTING_EXCEPTIONS.message)
-            val actual : DriscollException = assertThrows {templateService.dummyFunction(badName)}
-            //val actual : DriscollException = Assertions.assertThrows(DriscollException::class.java) {templateService.dummyFunction(badName)}
-            //Is this better?
+
+            val actual : DriscollException = Assertions.assertThrows(DriscollException::class.java) {templateService.dummyFunction(badName)}
             assertEquals(excepted.status,actual.status)
             assertEquals(excepted.message,actual.message)
         }
