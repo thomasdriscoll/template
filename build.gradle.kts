@@ -6,8 +6,8 @@ plugins {
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
     kotlin("plugin.jpa") version "1.3.72"
-    id("org.sonarqube") version "3.0"
-    id("jacoco")
+//    id("org.sonarqube") version "3.0"
+//    id("jacoco")
 }
 
 group = "com.thomas-driscoll"
@@ -69,9 +69,9 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-tasks.test {
-    finalizedBy(tasks.jacocoTestCoverageVerification) // report is always generated after tests run
-}
+//tasks.test {
+//    finalizedBy(tasks.jacocoTestCoverageVerification) // report is always generated after tests run
+//}
 //tasks.jacocoTestCoverageVerification {
 //    dependsOn(tasks.test)
 //    violationRules {
