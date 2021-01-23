@@ -6,8 +6,8 @@ plugins {
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
     kotlin("plugin.jpa") version "1.3.72"
-    id("org.sonarqube") version "3.0"
-    id("jacoco")
+//    id("org.sonarqube") version "3.0"
+//    id("jacoco")
 }
 
 group = "com.thomas-driscoll"
@@ -36,6 +36,7 @@ subprojects{
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
         }
+        implementation("org.hibernate.validator:hibernate-validator")
         implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
     }
 }
@@ -51,6 +52,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+    implementation("org.hibernate.validator:hibernate-validator")
+    implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
     implementation("org.springdoc:springdoc-openapi-ui:1.4.8")
     implementation(project(":api"))
 }
@@ -66,9 +69,9 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-tasks.test {
-    finalizedBy(tasks.jacocoTestCoverageVerification) // report is always generated after tests run
-}
+//tasks.test {
+//    finalizedBy(tasks.jacocoTestCoverageVerification) // report is always generated after tests run
+//}
 //tasks.jacocoTestCoverageVerification {
 //    dependsOn(tasks.test)
 //    violationRules {
