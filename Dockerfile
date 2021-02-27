@@ -13,5 +13,5 @@ VOLUME ["/app"]
 #Run ./gradlew build
 RUN ./gradlew build
 #Port mapping - HOST_PORT:CONTAINER_PORT
-EXPOSE 8019:8019
+EXPOSE 8019:8018
 ENTRYPOINT ["java", "-jar", "/app/build/libs/template-0.0.1-SNAPSHOT.jar"]
